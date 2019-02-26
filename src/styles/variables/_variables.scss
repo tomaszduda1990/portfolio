@@ -1,0 +1,22 @@
+// colors -----------------------------------------------
+$mainDark: #323232;
+// fonts ------------------------------------------------
+
+// sizes ------------------------------------------------
+
+$sidePadding: 4rem;
+
+$navHeightMin: 9rem;
+
+$iconMin: 3rem;
+
+// shadows -----------------------------------------------
+$shadowGeneral: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+//mixins ------------------------------------------------
+
+@mixin centerFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
