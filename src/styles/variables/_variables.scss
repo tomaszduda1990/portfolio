@@ -1,8 +1,21 @@
 // colors -----------------------------------------------
 $mainDark: #323232;
+$mainGrey: #eaeaea;
+$darkRed: #960707;
+$lightBlue: #5cb2e3;
+$mainYellow: #dac400;
+$plainWhite: #fff;
+$backgroundSubtitle: rgb(235, 87, 87);
 // fonts ------------------------------------------------
-
+$lato: 'Lato', sans-serif;
+$rationale: 'Rationale', sans-serif;
 // sizes ------------------------------------------------
+// ------ hero header
+$headerWidthMin: 20.7rem;
+$headerHeightMin: 15rem;
+$titleFontSizeMin: 2rem;
+$subtitleFontSizeMin: 1.8rem;
+$paddingsHero: 10px;
 
 $sidePadding: 4rem;
 
