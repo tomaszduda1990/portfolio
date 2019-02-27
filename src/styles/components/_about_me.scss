@@ -1,0 +1,11 @@
+.about_me {
+  padding-bottom: 30px;
+  &__cards {
+    flex: 1;
+    background: white;
+  }
+  &__dots {
+    background: green;
+    height: 2rem;
+  }
+}

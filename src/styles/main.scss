@@ -1,6 +1,7 @@
 @import './variables//variables';
 @import './components/nav';
 @import './components//hero';
+@import './components/about_me';
 
 * {
   box-sizing: border-box;
@@ -13,4 +14,39 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+}
+section {
+  padding: $navHeightMin 4rem 2rem 4rem;
+  height: 100%;
+  background-color: $mainGrey;
+  display: flex;
+  flex-direction: column;
+  .section_header {
+    position: relative;
+    color: $mainDark;
+    background: $plainWhite;
+    font-family: $lato;
+    font-size: $headerFontSizeMin;
+    padding: $paddingSectionHeaderMin;
+    margin-top: 3rem;
+    box-shadow: $shadowGeneral;
+    h2 {
+      margin: 0;
+      .section_title--red {
+        color: $darkRed;
+      }
+    }
+  }
+  .section_header:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    background: $headerBlue;
+    top: 0;
+    left: 0;
+  }
+}
+section:nth-child(2n + 1) {
+  background: $mainYellow;
 }
