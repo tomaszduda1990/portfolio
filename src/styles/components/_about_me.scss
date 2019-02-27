@@ -1,8 +1,25 @@
 .about_me {
-  padding-bottom: 30px;
+  padding-bottom: 100px;
   &__cards {
     flex: 1;
-    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .about_me__card {
+      height: $cardHeightMin;
+      min-width: 100%;
+      margin-right: 15px;
+      background: #fff;
+      border-radius: 21px;
+      position: relative;
+    }
+    .about_me__card:nth-child(2n + 1) {
+      transform: scale(0.9);
+    }
+
+    .about_me__card:last-child {
+      margin-right: 0;
+    }
   }
   &__dots {
     background: green;

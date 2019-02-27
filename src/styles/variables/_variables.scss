@@ -1,4 +1,5 @@
 // colors -----------------------------------------------
+
 $mainDark: #323232;
 $mainGrey: #eaeaea;
 $darkRed: #960707;
@@ -10,7 +11,9 @@ $backgroundSubtitle: rgb(235, 87, 87);
 // fonts ------------------------------------------------
 $lato: 'Lato', sans-serif;
 $rationale: 'Rationale', sans-serif;
+
 // sizes ------------------------------------------------
+
 // ------ hero header
 $headerWidthMin: 20.7rem;
 $headerHeightMin: 15rem;
@@ -18,14 +21,16 @@ $titleFontSizeMin: 2rem;
 $subtitleFontSizeMin: 1.8rem;
 $paddingsHero: 10px;
 
-// sections
+// -------- sections
 $headerFontSizeMin: 2rem;
 $sidePadding: 4rem;
 $paddingSectionHeaderMin: 0.8rem 1.3rem;
 
 $navHeightMin: 9rem;
-
 $iconMin: 3rem;
+
+// -------- about me
+$cardHeightMin: 28rem;
 
 // shadows -----------------------------------------------
 $shadowGeneral: 0px 4px 4px rgba(0, 0, 0, 0.25);
