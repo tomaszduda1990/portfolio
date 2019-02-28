@@ -10,7 +10,7 @@
       min-width: 100%;
       margin-right: 15px;
       background: #fff;
-      border-radius: 21px;
+      border-radius: $cardsRadius;
       position: relative;
     }
     .about_me__card:nth-child(2n + 1) {

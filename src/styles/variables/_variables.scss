@@ -6,6 +6,7 @@ $darkRed: #960707;
 $lightBlue: #5cb2e3;
 $headerBlue: #2f80ed;
 $mainYellow: #dac400;
+$mainGreen: #84b105;
 $plainWhite: #fff;
 $backgroundSubtitle: rgb(235, 87, 87);
 // fonts ------------------------------------------------
@@ -13,7 +14,7 @@ $lato: 'Lato', sans-serif;
 $rationale: 'Rationale', sans-serif;
 
 // sizes ------------------------------------------------
-
+$cardsRadius: 21px;
 // ------ hero header
 $headerWidthMin: 20.7rem;
 $headerHeightMin: 15rem;
@@ -33,6 +34,9 @@ $iconMin: 3rem;
 $cardHeightMin: 28rem;
 $dotsWidthMin: 2rem;
 
+// --------- skills
+$btnWidthMin: 6.5rem;
+$descHeightMin: 28rem;
 // shadows -----------------------------------------------
 $shadowGeneral: 0px 4px 4px rgba(0, 0, 0, 0.25);
 

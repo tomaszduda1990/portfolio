@@ -1,0 +1,39 @@
+.skills {
+  padding-bottom: 2rem;
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    flex: 1;
+    align-items: center;
+    .skillButton {
+      width: $btnWidthMin;
+      height: $btnWidthMin;
+      border-radius: 50%;
+      background: none;
+      border: 4px solid $mainYellow;
+      box-shadow: $shadowGeneral;
+      outline: none;
+    }
+    .skillButton:nth-child(2) {
+      border-color: $lightBlue;
+    }
+    .skillButton:nth-child(3) {
+      border-color: $darkRed;
+    }
+    .skillButton:nth-child(4) {
+      border-color: $plainWhite;
+    }
+    .skillButton:nth-child(5) {
+      border-color: $mainGreen;
+    }
+    .skillButton:nth-child(6) {
+      border-color: $mainDark;
+    }
+  }
+  &__descriptions {
+    min-height: $descHeightMin;
+    background: white;
+    border-radius: $cardsRadius;
+  }
+}
