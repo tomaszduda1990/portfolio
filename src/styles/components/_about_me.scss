@@ -22,7 +22,19 @@
     }
   }
   &__dots {
-    background: green;
-    height: 2rem;
+    @include centerFlex;
+    .about_me__dot {
+      margin: $dotsWidthMin;
+      height: $dotsWidthMin;
+      width: $dotsWidthMin;
+      border-radius: 50%;
+      border: 4px solid #fff;
+    }
+    .about_me__dot:nth-child(2) {
+      border-color: $headerBlue;
+    }
+    .about_me__dot:nth-child(3) {
+      border-color: $darkRed;
+    }
   }
 }
