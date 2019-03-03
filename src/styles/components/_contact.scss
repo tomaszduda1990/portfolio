@@ -1,0 +1,60 @@
+.contact {
+  position: relative;
+  &__icons {
+    @include centerFlex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 3rem;
+    .social-icon {
+      width: 8rem;
+      height: 8rem;
+      background: $plainWhite;
+      border-radius: 50%;
+      box-shadow: $shadowGeneral;
+      @include centerFlex;
+    }
+  }
+  &__box {
+    background: $plainWhite;
+    flex: 1;
+    border-radius: 2rem;
+    width: 100%;
+    margin-bottom: 7rem;
+  }
+  &__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 4rem;
+    background: $mainDark;
+    text-align: center;
+
+    .logo {
+      display: inline-block;
+      position: relative;
+      padding: 1rem 0;
+      height: 100%;
+      img {
+        height: auto;
+        width: 3rem;
+      }
+    }
+    .logo:before,
+    .logo:after {
+      content: '';
+      border-radius: 2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 2px;
+      width: 100%;
+      left: -150%;
+      background: $plainWhite;
+    }
+    .logo::after {
+      left: 150%;
+    }
+  }
+}

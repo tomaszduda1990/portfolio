@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2rem;
+    grid-auto-rows: minmax($btnWidthMin, 80px);
     justify-items: center;
     flex: 1;
     .skillButton {
@@ -31,8 +32,7 @@
     }
   }
   &__descriptions {
-    margin-top: 3rem;
-    height: 25rem;
+    flex: 1;
     background: white;
     border-radius: $cardsRadius;
   }
