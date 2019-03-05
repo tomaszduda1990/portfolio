@@ -29,6 +29,7 @@ section {
   background-color: $mainGrey;
   display: flex;
   flex-direction: column;
+  min-height: 640px;
   .section_header {
     position: relative;
     color: $mainDark;

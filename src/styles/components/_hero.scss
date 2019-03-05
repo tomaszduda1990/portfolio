@@ -46,15 +46,15 @@
       .hero__title span {
         color: $darkRed;
       }
+      .hero__image {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        height: 100%;
+        width: auto;
+      }
     }
-    header::after {
-      content: url('/src/assets/cartoon_photo.jpg');
-      position: absolute;
-      top: 0;
-      left: 100%;
-      height: 100%;
-      width: auto;
-    }
+
     .hero__subtitle {
       display: inline-block;
       padding: $paddingsHero;
@@ -70,5 +70,44 @@
   }
   &__scroll {
     @include centerFlex;
+  }
+}
+
+@media screen and (min-device-width: 450px) {
+  .hero {
+    header {
+      font-size: $titleFontSizeMin * 1.15;
+      max-width: 300px;
+      .hero__title--red {
+        font-size: $titleFontSizeMin * 1.8;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+@media screen and (min-device-width: 550px) {
+  .hero {
+    align-items: center;
+    &__header {
+      min-width: 400px;
+    }
+  }
+}
+@media screen and (min-device-width: 650px) {
+  .hero {
+    header {
+      min-width: $headerWidthMed;
+      height: $headerHeightMed;
+      font-size: $titleFontSizeMed;
+
+      .hero__title--red {
+        font-size: $titleFontSizeMed * 2.2;
+        line-height: 2;
+      }
+    }
+    .hero__subtitle {
+      font-size: $subtitleFontSizeMed;
+      min-width: 600px;
+    }
   }
 }
