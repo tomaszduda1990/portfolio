@@ -1,0 +1,63 @@
+nav {
+  height: $navHeightMin;
+  background-color: $mainDark;
+  @include centerFlex(space-between, center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: $shadowGeneral;
+  padding: 0 $sidePaddingMin;
+  .hamburger {
+    &__button {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 0;
+    }
+  }
+  .navigation {
+    display: none;
+    width: 50%;
+    ul {
+      padding: 0;
+      list-style-type: none;
+      @include centerFlex(space-between, center);
+      li {
+        a {
+          text-decoration: none;
+          color: $plainWhite;
+          font-size: $font-s;
+          transition: color 0.3s ease-in-out;
+          &:hover {
+            color: #9c9c9c;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-device-width: 750px) {
+  nav .navigation {
+    display: block;
+  }
+  nav .hamburger {
+    display: none;
+  }
+}
+
+@media screen and (min-device-width: 1450px) {
+  nav {
+    .navigation {
+      ul {
+        li {
+          a {
+            font-size: $font-m;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,48 +1,19 @@
-// colors -----------------------------------------------
+// white spaces
+$sidePaddingMin: 4rem;
 
-// fonts ------------------------------------------------
-
-// sizes ------------------------------------------------
-$cardsRadius: 21px;
-// ------ hero header
-$headerWidthMin: 20.7rem;
-$headerWidthMed: 40rem;
-
-$headerHeightMin: 15rem;
-$headerHeightMed: 30rem;
-
-$titleFontSizeMin: 2rem;
-$titleFontSizeMed: 2.8rem;
-
-$subtitleFontSizeMin: 1.8rem;
-$subtitleFontSizeMed: 2.5rem;
-
-$paddingsHero: 10px;
-
-// -------- sections
-$headerFontSizeMin: 2rem;
-$headerFontSizeMed: 3.2rem;
-$sidePadding: 4rem;
-$paddingSectionHeaderMin: 0.8rem 1.3rem;
-
-$navHeightMin: 9rem;
-$iconMin: 3rem;
-
-// -------- about me
-$cardHeightMin: 28rem;
-$cardHeightMed: 40rem;
-$dotsWidthMin: 2rem;
-
-// --------- skills
-$btnWidthMin: 6.5rem;
-$descHeightMin: 28rem;
-// shadows -----------------------------------------------
+// shadow
 $shadowGeneral: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+// transitions
+$transition: all 0.3s ease-in-out;
+
+// radius
+$cardsRadius: 21px;
 
 //mixins ------------------------------------------------
 
-@mixin centerFlex {
+@mixin centerFlex($justify, $align) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify;
+  align-items: $align;
 }
