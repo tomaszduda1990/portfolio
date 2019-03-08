@@ -1,4 +1,5 @@
 nav {
+  z-index: 100;
   height: $navHeightMin;
   background-color: $mainDark;
   @include centerFlex(space-between, center);

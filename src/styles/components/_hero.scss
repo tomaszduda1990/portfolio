@@ -1,0 +1,31 @@
+.hero {
+  background: $mainGrey;
+  @include centerFlex(space-between, start);
+  flex-direction: column;
+  padding: 0 $sidePaddingMin;
+  .hero__header {
+    margin-top: $sidePaddingMin;
+    min-width: calc(100% - 89.12px);
+
+    header {
+      position: relative;
+      padding: 0 0 0 $titlePaddingMin;
+      height: $heroPhotoHeightMin - 25px;
+      width: 100%;
+      background: $plainWhite;
+      @include centerFlex(center, start);
+      flex-direction: column;
+      .hero__image {
+        position: absolute;
+        top: 0;
+        left: 100%;
+      }
+      .hero__title {
+        font-size: $font-m;
+      }
+      .hero__title--red {
+        color: $darkRed;
+      }
+    }
+  }
+}
