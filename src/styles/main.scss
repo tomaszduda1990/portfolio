@@ -1,4 +1,11 @@
-@import './variables//variables';
+@import './variables/base';
+@import './variables/about_me';
+@import './variables/colors';
+@import './variables/contact';
+@import './variables/fonts';
+@import './variables/hero';
+@import './variables/nav';
+@import './variables/projects';
 @import './components/nav';
 @import './components//hero';
 @import './components/about_me';
