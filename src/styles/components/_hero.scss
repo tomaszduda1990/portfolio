@@ -10,7 +10,8 @@
     header {
       position: relative;
       padding: 0 0 0 $titlePaddingMin;
-      height: $heroPhotoHeightMin - 25px;
+      margin-bottom: 5px;
+      height: $heroPhotoHeightMin - 30px;
       width: 100%;
       background: $plainWhite;
       @include centerFlex(center, start);
@@ -27,5 +28,18 @@
         color: $darkRed;
       }
     }
+    .hero__subtitle {
+      margin: 0;
+      padding: 5px $titlePaddingMin;
+      min-width: 150%;
+      font-size: $font-s;
+      font-family: $rationale;
+      color: $plainWhite;
+      background: $darkRed;
+      opacity: 0.4;
+    }
+  }
+  .hero-scroll {
+    flex: 1;
   }
 }
