@@ -38,3 +38,30 @@
     }
   }
 }
+
+@media screen and (min-device-width: 540px) {
+  .about_me {
+    padding-bottom: 50px;
+    &__cards {
+      .about_me__card {
+        min-width: 450px;
+        height: $cardHeightMed;
+      }
+    }
+  }
+}
+
+@media screen and (min-device-width: 700px) {
+  .about_me {
+    &__cards {
+      .about_me__card {
+        min-width: 600px;
+      }
+    }
+  }
+}
+@media screen and (min-device-width: 1024px) {
+  .about_me {
+    padding-bottom: 20px;
+  }
+}

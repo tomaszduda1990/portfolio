@@ -59,3 +59,16 @@ section {
 section:nth-child(2n + 1) {
   background: $mainYellow;
 }
+
+@media screen and (min-device-width: 540px) {
+  section {
+    .section_header {
+      font-size: $headerFontSizeMed;
+    }
+  }
+}
+
+@media screen and (min-device-width: 700px) {
+}
+@media screen and (min-device-width: 1024px) {
+}
