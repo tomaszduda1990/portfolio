@@ -2,11 +2,11 @@
   background: $mainGrey;
   @include centerFlex(space-between, start);
   flex-direction: column;
-  padding: 0 $sidePaddingMin;
+  padding: 0 $sidePaddingMin $sidePaddingMin $sidePaddingMin;
+  min-height: calc(100vh - 9rem);
   .hero__header {
     margin-top: $sidePaddingMin;
-    min-width: calc(100% - 89.12px);
-
+    width: calc(100% - 89.12px);
     header {
       position: relative;
       padding: 0 0 0 $titlePaddingMin;
@@ -31,7 +31,7 @@
     .hero__subtitle {
       margin: 0;
       padding: 5px $titlePaddingMin;
-      min-width: 150%;
+      width: 150%;
       font-size: $font-s;
       font-family: $rationale;
       color: $plainWhite;
@@ -39,7 +39,76 @@
       opacity: 0.4;
     }
   }
-  .hero-scroll {
-    flex: 1;
+  .hero__scroll {
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  .hero {
+    .hero__header {
+      header {
+        min-height: $heroPhotoHeightMin;
+        .hero__title {
+          font-size: $font-l;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .hero {
+    .hero__header {
+      max-width: $subtitleWidthMed;
+      align-self: center;
+      header {
+        max-width: $headerWidthMed;
+        .hero__title {
+          font-size: $font-xxl;
+        }
+      }
+      .hero__subtitle {
+        width: $subtitleWidthMed;
+        margin-bottom: $sidePaddingMin;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .hero {
+    .hero__header {
+      min-width: $headerWidthL + 172px;
+      header {
+        height: $heroPhotoHeightMed - 60px;
+        max-width: $headerWidthL;
+        .hero__title {
+          font-size: $font-super-large;
+        }
+      }
+      .hero__subtitle {
+        font-size: $font-l;
+        width: $subtitleWidthL;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .hero {
+    .hero__header {
+      min-width: $headerWidthXL + 172px;
+      header {
+        height: $heroPhotoHeightMed - 60px;
+        max-width: $headerWidthXL;
+        .hero__title {
+          font-size: $biggest-font-i-ever-see;
+        }
+      }
+      .hero__subtitle {
+        width: $subtitleWidthXL;
+      }
+    }
   }
 }
