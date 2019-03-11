@@ -1,0 +1,74 @@
+.about_me {
+  padding: $navHeightMin $sidePaddingMin;
+  background: $mainYellow;
+
+  .section_header {
+    display: flex;
+    align-items: center;
+
+    &__circle {
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      border: 3px solid $plainWhite;
+    }
+    &__box {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      .line {
+        flex: 0.000001;
+        height: 2px;
+        background: $plainWhite;
+        transition: flex-grow 1000ms linear;
+      }
+      .line--active {
+        flex: 1;
+      }
+      .title {
+        position: relative;
+        margin-left: 10px;
+        color: $mainDark;
+        text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+
+        &--red {
+          margin: 0;
+          color: $darkRed;
+        }
+      }
+    }
+    &__box:after,
+    &__box:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 105%;
+      transform: translateX(0);
+      height: 100%;
+      background: $mainDark;
+      z-index: 5;
+      animation-name: shrink;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+      animation-duration: 1.2s;
+      animation-delay: 0;
+    }
+    &__box:before {
+      background: $plainWhite;
+      animation-delay: 0.3s;
+      z-index: 4;
+    }
+  }
+}
+
+@keyframes shrink {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(150%);
+  }
+}
