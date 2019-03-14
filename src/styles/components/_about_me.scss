@@ -97,14 +97,31 @@
       h3 {
         margin-bottom: 2.5rem;
         font-size: $font-m;
+        margin-bottom: 0;
       }
       p {
         font-size: $font-m;
-        padding: $sidePaddingMin;
+        padding: 0 $sidePaddingMin;
+        margin: 0;
       }
     }
     &__dots {
-      padding: 0 25%;
+      @include centerFlex(center, center);
+    }
+    &__dot {
+      margin: 0 40px;
+      &:nth-child(1) {
+        background-color: $darkRed;
+      }
+      &:nth-child(2) {
+        background-color: $headerBlue;
+      }
+      &:nth-child(3) {
+        background-color: $mainGreen;
+      }
+    }
+    &__dot--active {
+      border: 1px solid white;
     }
   }
 }
