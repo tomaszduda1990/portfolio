@@ -1,7 +1,7 @@
 .section_header {
   display: flex;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: $marginBot;
   &__circle {
     height: 15px;
     width: 15px;
@@ -49,7 +49,7 @@
         left: -5%;
         min-width: 120%;
         transform: translateX(0);
-        height: 100%;
+        height: 120%;
         background: $mainYellow;
         z-index: 5;
         animation-name: shrink;
@@ -91,5 +91,23 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .section_header {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width: 600px) {
+  .section_header {
+    font-size: $font-s;
+    &__circle {
+      height: 25px;
+      width: 25px;
+    }
+    &__box {
+      flex: 0.75;
+    }
   }
 }
