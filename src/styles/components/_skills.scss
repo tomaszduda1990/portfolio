@@ -23,10 +23,11 @@
     flex-direction: column;
     height: 200px;
     overflow: hidden;
+    // border-radius: 20px;
     box-shadow: $shadowGeneral;
     .skill__icon {
       position: relative;
-      background: $darkRed;
+      background: $headerBlue;
       flex-grow: 0.5;
       width: 100%;
       padding-top: 1rem;
@@ -138,9 +139,21 @@
       }
     }
   }
+  &__box:nth-child(2),
+  &__box:nth-child(5) {
+    .skill__icon {
+      background: $darkRed;
+    }
+  }
+  &__box:nth-child(3),
+  &__box:nth-child(4) {
+    .skill__icon {
+      background: $mainYellow;
+    }
+  }
   &__box:hover {
     .skill__icon {
-      background: darken($darkRed, 10%);
+      background: darken($headerBlue, 10%);
       flex-grow: 2;
       svg {
         transform: scale(0.7) translateY(0);
@@ -159,6 +172,18 @@
       &::before {
         opacity: 1;
       }
+    }
+  }
+  &__box:hover:nth-child(2),
+  &__box:hover:nth-child(5) {
+    .skill__icon {
+      background: darken($darkRed, 10%);
+    }
+  }
+  &__box:hover:nth-child(3),
+  &__box:hover:nth-child(4) {
+    .skill__icon {
+      background: darken($mainYellow, 10%);
     }
   }
   &__box:nth-child(2n + 1) {
