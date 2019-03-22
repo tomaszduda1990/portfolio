@@ -1,6 +1,18 @@
 .skills {
   background-color: $mainGrey;
   padding: $navHeightMin $sidePaddingMin;
+  .section_header {
+    &__box {
+      .title {
+        &:after {
+          background: $mainGrey;
+        }
+        &:before {
+          background: $plainWhite;
+        }
+      }
+    }
+  }
   &__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -11,7 +23,9 @@
     flex-direction: column;
     height: 200px;
     background: yellow;
+    overflow: hidden;
     .skill__icon {
+      position: relative;
       background: $darkRed;
       flex-grow: 0.5;
       width: 100%;
@@ -22,6 +36,34 @@
         transform: scale(1) translateY(50%);
         transition: inherit;
       }
+      .skill__list {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        color: $mainGrey;
+        font-size: 1.4rem;
+        li {
+          opacity: 0;
+          transform: translateX(-100%);
+          transition-property: all;
+          transition-duration: 0.4s;
+          pointer-events: none;
+          transition-timing-function: ease-in-out;
+          transition-delay: 0s;
+        }
+        li:nth-child(2) {
+          transition-delay: 0.1s;
+        }
+        li:nth-child(3) {
+          transition-delay: 0.2s;
+        }
+        li:nth-child(4) {
+          transition-delay: 0.3s;
+        }
+      }
     }
     .skill__label {
       position: relative;
@@ -31,20 +73,31 @@
       background-size: cover;
       flex-grow: 1;
       overflow: hidden;
+      &::before,
       &::after {
-        opacity: 1;
         transition: opacity 0.3s ease-in-out;
         position: absolute;
+        width: 100%;
+      }
+      &::after {
+        opacity: 1;
         top: 2%;
         left: 2%;
         background: rgba(0, 0, 0, 0.6);
         padding-left: 5px;
         height: 20px;
-        width: 100%;
         font-size: 1.2rem;
         color: $mainGrey;
         transform: rotate(90deg);
         transform-origin: 0;
+      }
+      &::before {
+        content: '';
+        opacity: 0;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: RGBA(92, 178, 227, 0.3);
       }
     }
     .skill__html {
@@ -91,10 +144,19 @@
       svg {
         transform: scale(0.7) translateY(0);
       }
+      .skill__list {
+        li {
+          opacity: 0.7;
+          transform: translateX(0);
+        }
+      }
     }
     .skill__label {
       &::after {
         opacity: 0;
+      }
+      &::before {
+        opacity: 1;
       }
     }
   }
