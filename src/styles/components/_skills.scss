@@ -16,14 +16,14 @@
   &__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-gap: 20px 10px;
   }
   &__box {
     @include centerFlex(center, center);
     flex-direction: column;
     height: 200px;
-    background: yellow;
     overflow: hidden;
+    box-shadow: $shadowGeneral;
     .skill__icon {
       position: relative;
       background: $darkRed;
@@ -44,6 +44,7 @@
         list-style: none;
         padding: 0;
         color: $mainGrey;
+        text-transform: lowercase;
         font-size: 1.4rem;
         li {
           opacity: 0;
@@ -162,6 +163,42 @@
   }
   &__box:nth-child(2n + 1) {
     flex-direction: column-reverse;
-    background-color: pink;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .skills {
+    &__container {
+      grid-template-columns: repeat(2, 180px);
+      justify-content: space-between;
+      grid-row-gap: 80px;
+    }
+    &__box {
+      height: 250px;
+      .skill__icon {
+        .skill__list {
+          font-size: $font-s;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  .skills {
+    &__container {
+      grid-template-columns: repeat(3, 160px);
+    }
+    &__box:nth-child(1),
+    &__box:nth-child(4) {
+      transform: translateY(0);
+    }
+    &__box:nth-child(2),
+    &__box:nth-child(5) {
+      transform: translateY(10%);
+    }
+    &__box:nth-child(3),
+    &__box:nth-child(6) {
+      transform: translateY(20%);
+    }
   }
 }
