@@ -26,24 +26,26 @@
     // border-radius: 20px;
     box-shadow: $shadowGeneral;
     .skill__icon {
+      transition: all 0.7s $cubic;
       position: relative;
+      @include centerFlex(center, flex-end);
       background: $headerBlue;
       flex-grow: 0.5;
       width: 100%;
       text-align: center;
       z-index: 2;
-      transition: all 0.7s $cubic;
+
       .icon {
         display: inline-block;
-        padding: 5px;
+        padding: 8px;
         border-radius: 50%;
         background: inherit;
         transition: inherit;
-        transform: scale(1) translateY(-50%);
+        transform: scale(1) translateY(50%);
       }
       .skill__list {
         position: absolute;
-        bottom: 0;
+        top: 0;
         left: 0;
         width: 100%;
         list-style: none;
@@ -159,8 +161,9 @@
     .skill__icon {
       background: darken($headerBlue, 10%);
       flex-grow: 2;
-      svg {
+      .icon {
         transform: scale(0.7) translateY(0);
+        background: darken($headerBlue, 10%);
       }
       .skill__list {
         li {
@@ -178,20 +181,44 @@
       }
     }
   }
+  &__box:nth-child(odd) {
+    flex-direction: column-reverse;
+    .skill__icon {
+      align-items: flex-start;
+      .icon {
+        position: relative;
+        transform: scale(1) translateY(-50%);
+      }
+      .skill__list {
+        top: unset;
+        bottom: 0;
+      }
+    }
+  }
+  &__box:nth-child(odd):hover {
+    .skill__icon {
+      .icon {
+        transform: scale(0.7) translateY(0%);
+      }
+    }
+  }
   &__box:hover:nth-child(2),
   &__box:hover:nth-child(5) {
     .skill__icon {
       background: darken($darkRed, 10%);
+      .icon {
+        background: darken($darkRed, 10%);
+      }
     }
   }
   &__box:hover:nth-child(3),
   &__box:hover:nth-child(4) {
     .skill__icon {
       background: darken($mainYellow, 15%);
+      .icon {
+        background: darken($mainYellow, 15%);
+      }
     }
-  }
-  &__box:nth-child(2n + 1) {
-    flex-direction: column-reverse;
   }
 }
 
