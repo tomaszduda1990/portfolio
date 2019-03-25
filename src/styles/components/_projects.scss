@@ -1,0 +1,16 @@
+.projects {
+  background: $mainDark;
+  padding: $navHeightMin $sidePaddingMin;
+  .section_header {
+    &__box {
+      .title {
+        &:after {
+          background: $mainDark;
+        }
+        &:before {
+          background: $plainWhite;
+        }
+      }
+    }
+  }
+}

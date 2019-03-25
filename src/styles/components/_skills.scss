@@ -30,12 +30,16 @@
       background: $headerBlue;
       flex-grow: 0.5;
       width: 100%;
-      padding-top: 1rem;
       text-align: center;
+      z-index: 2;
       transition: all 0.7s $cubic;
-      svg {
-        transform: scale(1) translateY(50%);
+      .icon {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 50%;
+        background: inherit;
         transition: inherit;
+        transform: scale(1) translateY(-50%);
       }
       .skill__list {
         position: absolute;
@@ -148,7 +152,7 @@
   &__box:nth-child(3),
   &__box:nth-child(4) {
     .skill__icon {
-      background: $mainYellow;
+      background: darken($mainYellow, 10%);
     }
   }
   &__box:hover {
@@ -183,7 +187,7 @@
   &__box:hover:nth-child(3),
   &__box:hover:nth-child(4) {
     .skill__icon {
-      background: darken($mainYellow, 10%);
+      background: darken($mainYellow, 15%);
     }
   }
   &__box:nth-child(2n + 1) {
@@ -212,6 +216,8 @@
   .skills {
     &__container {
       grid-template-columns: repeat(3, 160px);
+      max-width: 600px;
+      margin: 0 auto;
     }
     &__box:nth-child(1),
     &__box:nth-child(4) {
