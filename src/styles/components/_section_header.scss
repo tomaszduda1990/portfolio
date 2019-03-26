@@ -34,7 +34,8 @@
       position: relative;
       margin-left: 10px;
       color: $mainDark;
-      text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+      letter-spacing: 5px;
+      //text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
 
       &--red {
         margin: 0;
