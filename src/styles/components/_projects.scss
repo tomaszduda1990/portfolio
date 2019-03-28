@@ -14,6 +14,7 @@
     }
   }
   &__list {
+    position: relative;
     text-align: center;
     padding: 4rem 0;
     overflow: hidden;
@@ -95,5 +96,44 @@
     ul::-webkit-scrollbar {
       display: none;
     }
+    .indicator {
+      position: absolute;
+      top: 50%;
+      left: 4%;
+      height: 100px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      div {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: $mainYellow;
+        animation-name: jump;
+        animation-duration: 0.7s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+          background-color: $headerBlue;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.4s;
+          background-color: $darkRed;
+        }
+      }
+    }
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(0, -125%);
+  }
+  100% {
+    transform: translate(50%, -125%);
   }
 }
