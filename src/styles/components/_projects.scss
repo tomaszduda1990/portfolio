@@ -4,6 +4,7 @@
   .section_header {
     &__box {
       .title {
+        color: $plainWhite;
         &:after {
           background: $mainDark;
         }
