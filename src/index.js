@@ -82,11 +82,14 @@ const appendFragment = (projectsList, element) => {
   projectsList.map(createLi).forEach(el => frag.appendChild(el));
   element.appendChild(frag);
 };
-const insertBeforeFragment = (projectsList, element) => {
+const insertBeforeFragment = (projectsList, element, init) => {
   const first = element.firstElementChild;
   const frag = document.createDocumentFragment();
   projectsList.map(createLi).forEach(el => frag.appendChild(el));
   element.insertBefore(frag, first);
+  if (init) {
+    element.scrollTop = first.offsetTop - 50;
+  }
 };
 // events
 const projectList = document.querySelector('.projects__list ul');
@@ -99,7 +102,7 @@ window.onload = () => {
   // testing adding li elements to ul onload
 
   appendFragment(projects, projectList);
-  insertBeforeFragment(projects, projectList);
+  insertBeforeFragment(projects, projectList, true);
 };
 
 // test event
