@@ -1,4 +1,5 @@
 import './styles/main.scss';
+import debounce from 'lodash/debounce';
 import App from './scripts/App';
 
 // =========================== about me text animation
@@ -50,6 +51,7 @@ const projects = [
     live: '#'
   }
 ];
+const projectList = document.querySelector('.projects__list ul');
 const createLi = el => {
   const li = document.createElement('li');
   const button = document.createElement('button');
@@ -91,9 +93,50 @@ const insertBeforeFragment = (projectsList, element, init) => {
     element.scrollTop = first.offsetTop - 50;
   }
 };
+const deleteTopLi = el => {
+  const deleteRate = projects.length * 3;
+  const startingValue = el.children.length - 1;
+
+  for (let i = startingValue; i > deleteRate; i--) {
+    el.removeChild(el.firstChild);
+  }
+};
+const deleteBottomLi = el => {
+  const deleteRate = projects.length;
+  for (let i = 0; i < deleteRate; i++) {
+    el.removeChild(el.lastChild);
+  }
+};
+const activeClassControl = el => {
+  const listItems = el.querySelectorAll('li');
+  const center = el.getBoundingClientRect().height / 2;
+  listItems.forEach(element => {
+    const elCenter =
+      element.getBoundingClientRect().top - element.getBoundingClientRect().height / 2;
+    const topBorderActive = center + element.getBoundingClientRect().height / 3;
+    const bottomBorderActive = center - element.getBoundingClientRect().height / 3;
+    if (elCenter < topBorderActive && elCenter > bottomBorderActive) {
+      element.classList.add('projects__item--active');
+    } else {
+      element.classList.remove('projects__item--active');
+    }
+  });
+};
+const scrollingProjects = e => {
+  const endOfList = e.target.lastChild.getBoundingClientRect().bottom;
+  if (e.target.scrollTop + 400 > endOfList) {
+    appendFragment(projects, projectList);
+    e.target.children.length > 12 ? deleteTopLi(e.target) : null;
+  } else if (e.target.scrollTop - 400 <= 0) {
+    insertBeforeFragment(projects, projectList);
+    e.target.children.length > 12 ? deleteBottomLi(e.target) : null;
+  }
+  activeClassControl(e.target);
+};
+const scrollHandler = debounce(scrollingProjects, 50);
+
 // events
-const projectList = document.querySelector('.projects__list ul');
-console.log(projectList);
+
 window.onload = () => {
   app.init();
   const arr = document.querySelectorAll('.about_me__card p');
@@ -102,8 +145,12 @@ window.onload = () => {
   // testing adding li elements to ul onload
 
   appendFragment(projects, projectList);
+  appendFragment(projects, projectList);
   insertBeforeFragment(projects, projectList, true);
 };
+
+// scrolling ul event
+projectList.addEventListener('scroll', scrollHandler);
 
 // test event
 const div = document.querySelector('.about_me__card--active');
