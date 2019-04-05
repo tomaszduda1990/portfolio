@@ -107,6 +107,8 @@ const deleteBottomLi = el => {
     el.removeChild(el.lastChild);
   }
 };
+
+// pokombinowac z OFFSET TOP bo to jest klucz do idealnego środka! ! !
 const activeClassControl = el => {
   const listItems = el.querySelectorAll('li');
   const center = el.getBoundingClientRect().height / 2;
@@ -117,6 +119,7 @@ const activeClassControl = el => {
     const bottomBorderActive = center - element.getBoundingClientRect().height / 3;
     if (elCenter < topBorderActive && elCenter > bottomBorderActive) {
       element.classList.add('projects__item--active');
+      console.log(element.offsetTop);
     } else {
       element.classList.remove('projects__item--active');
     }
