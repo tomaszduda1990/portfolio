@@ -111,7 +111,7 @@ const deleteBottomLi = el => {
 // pokombinowac z OFFSET TOP bo to jest klucz do idealnego środka! ! !
 const activeClassControl = el => {
   const listItems = el.querySelectorAll('li');
-  const center = el.getBoundingClientRect().height / 2;
+  const center = el.scrollHeight / 2;
   listItems.forEach(element => {
     const elCenter =
       element.getBoundingClientRect().top - element.getBoundingClientRect().height / 2;
@@ -119,13 +119,13 @@ const activeClassControl = el => {
     const bottomBorderActive = center - element.getBoundingClientRect().height / 3;
     if (elCenter < topBorderActive && elCenter > bottomBorderActive) {
       element.classList.add('projects__item--active');
-      console.log(element.offsetTop);
     } else {
       element.classList.remove('projects__item--active');
     }
   });
 };
 const scrollingProjects = e => {
+  // console.log(e.target.scrollTop);
   const endOfList = e.target.lastChild.getBoundingClientRect().bottom;
   if (e.target.scrollTop + 400 > endOfList) {
     appendFragment(projects, projectList);
@@ -153,8 +153,14 @@ window.onload = () => {
 };
 
 // scrolling ul event
-projectList.addEventListener('scroll', scrollHandler);
-
+// projectList.addEventListener('scroll', scrollHandler);
+projectList.addEventListener('wheel', function(e) {
+  if (e.deltaY < 0) {
+    projectList.scrollTop += e.target.getBoundingClientRect().height;
+  } else {
+    projectList.scrollTop -= e.target.getBoundingClientRect().height;
+  }
+});
 // test event
 const div = document.querySelector('.about_me__card--active');
 div.addEventListener('click', function(e) {

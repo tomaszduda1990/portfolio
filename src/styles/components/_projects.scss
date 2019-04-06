@@ -27,6 +27,7 @@
       overflow-y: scroll;
       scrollbar-width: none;
       text-align: center;
+      scroll-behavior: smooth;
       .projects__item {
         position: relative;
         transition: all 0.5s ease-in-out;
