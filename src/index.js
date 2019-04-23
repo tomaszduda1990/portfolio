@@ -1,5 +1,4 @@
 import './styles/main.scss';
-import debounce from 'lodash/debounce';
 import App from './scripts/App';
 
 // =========================== about me text animation
@@ -28,115 +27,35 @@ const textToSpan = p => {
 const app = new App(document.querySelectorAll('section'));
 
 //  ==============================   infinite scroll projects
+// -- creating arr with projects
 
 const projects = [
   {
-    name: 'Calculator',
-    code: '#',
-    live: '#'
+    title: 'Calculator',
+    live: '#',
+    code: '#'
   },
   {
-    name: 'Quiz app',
-    code: '#',
-    live: '#'
+    title: 'Quiz app',
+    live: '#',
+    code: '#'
   },
   {
-    name: 'HTML 2 PSD',
-    code: '#',
-    live: '#'
+    title: 'Test Project',
+    live: '#',
+    code: '#'
   },
   {
-    name: 'Hamburger App React',
-    code: '#',
-    live: '#'
+    title: 'Hamburger App',
+    live: '#',
+    code: '#'
+  },
+  {
+    title: 'PSD to HTML',
+    live: '#',
+    code: '#'
   }
 ];
-const projectList = document.querySelector('.projects__list ul');
-const createLi = el => {
-  const li = document.createElement('li');
-  const button = document.createElement('button');
-  const links = document.createElement('div');
-  const code = document.createElement('a');
-  const live = document.createElement('a');
-  // prepare li
-  li.classList.add('projects__item');
-  // prepare button
-  button.classList.add('button');
-  button.textContent = el.name;
-  // prepare single project
-  links.classList.add('project');
-  code.setAttribute('href', el.code);
-  code.setAttribute('target', '_blank');
-  code.classList.add('project__link');
-  live.setAttribute('href', el.live);
-  live.setAttribute('target', '_blank');
-  live.classList.add('project__link');
-
-  // appending elements to each other
-  links.appendChild(code);
-  links.appendChild(live);
-  li.appendChild(button);
-  li.appendChild(links);
-  return li;
-};
-const appendFragment = (projectsList, element) => {
-  const frag = document.createDocumentFragment();
-  projectsList.map(createLi).forEach(el => frag.appendChild(el));
-  element.appendChild(frag);
-};
-const insertBeforeFragment = (projectsList, element, init) => {
-  const first = element.firstElementChild;
-  const frag = document.createDocumentFragment();
-  projectsList.map(createLi).forEach(el => frag.appendChild(el));
-  element.insertBefore(frag, first);
-  if (init) {
-    element.scrollTop = first.offsetTop - 50;
-  }
-};
-const deleteTopLi = el => {
-  const deleteRate = projects.length * 3;
-  const startingValue = el.children.length - 1;
-
-  for (let i = startingValue; i > deleteRate; i--) {
-    el.removeChild(el.firstChild);
-  }
-};
-const deleteBottomLi = el => {
-  const deleteRate = projects.length;
-  for (let i = 0; i < deleteRate; i++) {
-    el.removeChild(el.lastChild);
-  }
-};
-
-// pokombinowac z OFFSET TOP bo to jest klucz do idealnego środka! ! !
-const activeClassControl = el => {
-  const listItems = el.querySelectorAll('li');
-  const center = el.scrollHeight / 2;
-  listItems.forEach(element => {
-    const elCenter =
-      element.getBoundingClientRect().top - element.getBoundingClientRect().height / 2;
-    const topBorderActive = center + element.getBoundingClientRect().height / 3;
-    const bottomBorderActive = center - element.getBoundingClientRect().height / 3;
-    if (elCenter < topBorderActive && elCenter > bottomBorderActive) {
-      element.classList.add('projects__item--active');
-    } else {
-      element.classList.remove('projects__item--active');
-    }
-  });
-};
-const scrollingProjects = e => {
-  // console.log(e.target.scrollTop);
-  const endOfList = e.target.lastChild.getBoundingClientRect().bottom;
-  if (e.target.scrollTop + 400 > endOfList) {
-    appendFragment(projects, projectList);
-    e.target.children.length > 12 ? deleteTopLi(e.target) : null;
-  } else if (e.target.scrollTop - 400 <= 0) {
-    insertBeforeFragment(projects, projectList);
-    e.target.children.length > 12 ? deleteBottomLi(e.target) : null;
-  }
-  activeClassControl(e.target);
-};
-const scrollHandler = debounce(scrollingProjects, 50);
 
 // events
 
@@ -144,23 +63,11 @@ window.onload = () => {
   app.init();
   const arr = document.querySelectorAll('.about_me__card p');
   arr.forEach(textToSpan);
-
-  // testing adding li elements to ul onload
-
-  appendFragment(projects, projectList);
-  appendFragment(projects, projectList);
-  insertBeforeFragment(projects, projectList, true);
 };
 
 // scrolling ul event
 // projectList.addEventListener('scroll', scrollHandler);
-projectList.addEventListener('wheel', function(e) {
-  if (e.deltaY < 0) {
-    projectList.scrollTop += e.target.getBoundingClientRect().height;
-  } else {
-    projectList.scrollTop -= e.target.getBoundingClientRect().height;
-  }
-});
+
 // test event
 const div = document.querySelector('.about_me__card--active');
 div.addEventListener('click', function(e) {
