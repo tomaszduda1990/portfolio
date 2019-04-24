@@ -32,7 +32,6 @@ export default class Scroll {
     } else if (pos > boundries[3] && pos < boundries[4] && this.currentPage !== 4) {
       console.log('PAGE 4');
       this.currentPage = 4;
-      this.projects.initializeProjects();
     } else if (pos > boundries[4] && this.currentPage !== 5) {
       console.log('PAGE 5');
       this.currentPage = 5;
@@ -40,6 +39,7 @@ export default class Scroll {
   }
 
   setup() {
+    this.projects.initializeProjects();
     window.addEventListener('scroll', throttle(this.showPageHandler, 150));
   }
 }

@@ -27,6 +27,7 @@ export const works = [
 ];
 export const createLi = project => {
   const li = document.createElement('li');
+  li.classList.add('project');
   li.textContent = project.title;
   return li;
 };
