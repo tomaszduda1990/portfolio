@@ -1,10 +1,13 @@
 import throttle from 'lodash/throttle';
+import Projects from './projects';
+import { works } from './helpers';
 
 export default class Scroll {
   constructor(app) {
     this.app = app;
     this.currentPage = 1;
     this.showPageHandler = this.showPageHandler.bind(this);
+    this.projects = new Projects(document.querySelector('.projects__list ul'), works);
   }
 
   showPageHandler(e) {
@@ -29,6 +32,7 @@ export default class Scroll {
     } else if (pos > boundries[3] && pos < boundries[4] && this.currentPage !== 4) {
       console.log('PAGE 4');
       this.currentPage = 4;
+      this.projects.initializeProjects();
     } else if (pos > boundries[4] && this.currentPage !== 5) {
       console.log('PAGE 5');
       this.currentPage = 5;

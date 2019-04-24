@@ -29,34 +29,6 @@ const app = new App(document.querySelectorAll('section'));
 //  ==============================   infinite scroll projects
 // -- creating arr with projects
 
-const projects = [
-  {
-    title: 'Calculator',
-    live: '#',
-    code: '#'
-  },
-  {
-    title: 'Quiz app',
-    live: '#',
-    code: '#'
-  },
-  {
-    title: 'Test Project',
-    live: '#',
-    code: '#'
-  },
-  {
-    title: 'Hamburger App',
-    live: '#',
-    code: '#'
-  },
-  {
-    title: 'PSD to HTML',
-    live: '#',
-    code: '#'
-  }
-];
-
 // events
 
 window.onload = () => {
